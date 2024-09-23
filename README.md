@@ -10,7 +10,7 @@
 This project demonstrates the implementation of continuous integration practices in a Python Data Science project, focusing on automating the workflows for formatting, linting, testing, and dependency installation using GitHub Actions. The project incorporates a Python script and a Jupyter Notebook that both perform descriptive statistical analysis. This setup exemplifies best practices in code development, version control, and automated testing to ensure code quality and functionality.
 
 ## YouTube Video
-[Click Here For Demo]()
+[Click Here For Demo](https://www.youtube.com/watch?v=pGTLPDXGixA)
 
 ## Project Directory
 ```
