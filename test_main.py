@@ -3,6 +3,7 @@ from main import (
     summary_statistics,
     save_to_md,
 )
+import os
 
 
 def test_describe():
@@ -12,7 +13,6 @@ def test_describe():
 
 def test_summary_statistics():
     stats = summary_statistics()
-    # Ensure returned dictionary has proper structure
     assert "Mean" in stats and callable(stats["Mean"])
     assert "Median" in stats and callable(stats["Median"])
     assert "Standard Deviation" in stats and callable(stats["Standard Deviation"])
@@ -20,6 +20,7 @@ def test_summary_statistics():
 
 def test_save_to_md():
     save_to_md()
+    assert os.path.exists("test.md")
 
 
 if __name__ == "__main__":

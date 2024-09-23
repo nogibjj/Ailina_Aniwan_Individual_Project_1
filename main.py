@@ -35,16 +35,13 @@ def summary_statistics():
     }
 
 
-def plot_summary_statistics():
-    df = load_dataset()
-    plot_summary_statistics(df)
-
-
 def save_to_md():
     with open("test.md", "w", encoding="utf-8") as file:
         file.write("test")
 
 
 if __name__ == "__main__":
+    df = load_dataset()
     print(general_describe())
     summary_statistics()
+    plot_summary_statistics(df)

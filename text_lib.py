@@ -21,17 +21,14 @@ def test_statistics():
     }
     df = pd.DataFrame(data)
 
-    # Assert mean calculations
     assert process_mean(df, "beer_servings") == 60
     assert process_mean(df, "spirit_servings") == 90
     assert process_mean(df, "wine_servings") == 30
 
-    # Assert median calculations
     assert process_median(df, "beer_servings") == 60
     assert process_median(df, "spirit_servings") == 90
     assert process_median(df, "wine_servings") == 30
 
-    # Assert standard deviation calculations
     assert round(process_std(df, "beer_servings"), 2) == 10
     assert round(process_std(df, "spirit_servings"), 2) == 10
     assert round(process_std(df, "wine_servings"), 2) == 10
