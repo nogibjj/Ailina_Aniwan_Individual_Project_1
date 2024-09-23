@@ -1,5 +1,4 @@
 from main import general_describe, summary_statistics, save_to_md, load_dataset
-import pandas as pd
 
 
 def test_describe():
