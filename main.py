@@ -32,7 +32,7 @@ def summary_statistics(df):
     return stats
 
 
-def save_to_md(df, filename="summary.md"):
+def save_to_md(df, filename="summary.md", image_filename="figure.png"):
     with open(filename, "w", encoding="utf-8") as file:
         file.write(df.describe().to_markdown() + "\n\n")
 
@@ -50,6 +50,7 @@ def save_to_md(df, filename="summary.md"):
             file.write(f"- Mean: {mean:.2f}\n")
             file.write(f"- Median: {median:.2f}\n")
             file.write(f"- Standard Deviation: {std_dev:.2f}\n\n")
+            file.write(f"![Summary Statistics Chart]({image_filename})\n")
 
 
 if __name__ == "__main__":

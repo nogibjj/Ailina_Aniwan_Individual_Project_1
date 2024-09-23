@@ -14,18 +14,3 @@
 - Median: 76.00
 - Standard Deviation: 101.14
 
-## Column: spirit_servings
-- Mean: 80.99
-- Median: 56.00
-- Standard Deviation: 88.28
-
-## Column: wine_servings
-- Mean: 49.45
-- Median: 8.00
-- Standard Deviation: 79.70
-
-## Column: total_litres_of_pure_alcohol
-- Mean: 4.72
-- Median: 4.20
-- Standard Deviation: 3.77
-
