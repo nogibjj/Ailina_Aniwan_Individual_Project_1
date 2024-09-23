@@ -1,3 +1,7 @@
+[![Install](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/install.yml)
+[![Format](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/format.yml)
+[![Lint](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/lint.yml)
+[![Test](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Ailina_Aniwan_Individual_Project_1/actions/workflows/test.yml)
 # IDS706 - Individual Project 1 - Ailina Aniwan
 
 ## Continous Integration using Github Actions of Python Data Science Project
@@ -27,6 +31,7 @@ Ailina_Aniwan_Individual_Project_1/
 ├── Dockerfile
 ├── figure.png
 ├── LICENSE
+├── lint.png
 ├── main.ipynb
 ├── main.py
 ├── Makefile
@@ -36,12 +41,13 @@ Ailina_Aniwan_Individual_Project_1/
 ├── setup.sh
 ├── summary.md
 ├── test_lib.py
-└── test_main.py
+├── test_main.py
+└── test.png
 
 ```
 
 ## Project Overview
-This project analyzes global alcohol consumption using the **drinks.csv** dataset from [FiveThirtyEight](https://github.com/fivethirtyeight/data). It uses Python with **Polars** for statistical analysis and **Matplotlib** for data visualization to explore the consumption of beer, spirits, and wine across different countries.
+This project analyzes global alcohol consumption using the **drinks.csv** dataset from [FiveThirtyEight](https://github.com/fivethirtyeight/data). It uses Python with **Pandas** for statistical analysis and **Matplotlib** for data visualization to explore the consumption of beer, spirits, and wine across different countries.
 
 ## Data Source
 
