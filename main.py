@@ -1,19 +1,21 @@
-"""
-Main cli or app entry point
-"""
+from mylib.lib import (
+    load_dataset,
+    process_mean,
+    process_median,
+    process_std,
+    plot_summary_statistics,
+)
 
-from mylib.calculator import add
-import click
 
-#var=1;var=2
+def general_describe():
+    general = load_dataset()
+    return general.describe()
 
-@click.command("add")
-@click.argument("a", type=int)
-@click.argument("b", type=int)
-def add_cli(a, b):
-    click.echo(add(a, b))
+
+def save_to_md():
+    with open("test.md", "a") as file:
+        file.write("test")
 
 
 if __name__ == "__main__":
-    # pylint: disable=no-value-for-parameter
-    add_cli()
+    save_to_md()
