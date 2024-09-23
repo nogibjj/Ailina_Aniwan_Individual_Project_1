@@ -7,41 +7,54 @@ from mylib.lib import (
 )
 
 
-def general_describe():
-    df = load_dataset()
+def general_describe(df):
     return df.describe()
 
 
-def summary_statistics():
-    df = load_dataset()
+def summary_statistics(df):
     columns = [
         "beer_servings",
         "spirit_servings",
         "wine_servings",
         "total_litres_of_pure_alcohol",
     ]
-
+    stats = {}
     for col in columns:
+        mean = process_mean(df, col)
+        median = process_median(df, col)
+        std_dev = process_std(df, col)
         print(f"Column: {col}")
-        print(f"Mean: {process_mean(df, col):.2f}")
-        print(f"Median: {process_median(df, col):.2f}")
-        print(f"Standard Deviation: {process_std(df, col):.2f}")
+        print(f"Mean: {mean:.2f}")
+        print(f"Median: {median:.2f}")
+        print(f"Standard Deviation: {std_dev:.2f}")
         print()
-
-    return {
-        "Mean": process_mean,
-        "Median": process_median,
-        "Standard Deviation": process_std,
-    }
+        stats[col] = {"Mean": mean, "Median": median, "Standard Deviation": std_dev}
+    return stats
 
 
-def save_to_md():
-    with open("test.md", "w", encoding="utf-8") as file:
-        file.write("test")
+def save_to_md(df, filename="summary.md"):
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(df.describe().to_markdown() + "\n\n")
+
+        columns = [
+            "beer_servings",
+            "spirit_servings",
+            "wine_servings",
+            "total_litres_of_pure_alcohol",
+        ]
+        for col in columns:
+            mean = process_mean(df, col)
+            median = process_median(df, col)
+            std_dev = process_std(df, col)
+            file.write(f"## Column: {col}\n")
+            file.write(f"- Mean: {mean:.2f}\n")
+            file.write(f"- Median: {median:.2f}\n")
+            file.write(f"- Standard Deviation: {std_dev:.2f}\n\n")
 
 
 if __name__ == "__main__":
     df = load_dataset()
-    print(general_describe())
-    summary_statistics()
+    print(general_describe(df).to_markdown())
+    summary_statistics(df)
     plot_summary_statistics(df)
+    save_to_md(df)

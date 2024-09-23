@@ -21,17 +21,31 @@ def test_statistics():
     }
     df = pd.DataFrame(data)
 
-    assert process_mean(df, "beer_servings") == 60
-    assert process_mean(df, "spirit_servings") == 90
-    assert process_mean(df, "wine_servings") == 30
+    assert process_mean(df, "beer_servings") == 60, "Mean of beer_servings should be 60"
+    assert (
+        process_mean(df, "spirit_servings") == 90
+    ), "Mean of spirit_servings should be 90"
+    assert process_mean(df, "wine_servings") == 30, "Mean of wine_servings should be 30"
 
-    assert process_median(df, "beer_servings") == 60
-    assert process_median(df, "spirit_servings") == 90
-    assert process_median(df, "wine_servings") == 30
+    assert (
+        process_median(df, "beer_servings") == 60
+    ), "Median of beer_servings should be 60"
+    assert (
+        process_median(df, "spirit_servings") == 90
+    ), "Median of spirit_servings should be 90"
+    assert (
+        process_median(df, "wine_servings") == 30
+    ), "Median of wine_servings should be 30"
 
-    assert round(process_std(df, "beer_servings"), 2) == 10
-    assert round(process_std(df, "spirit_servings"), 2) == 10
-    assert round(process_std(df, "wine_servings"), 2) == 10
+    assert (
+        round(process_std(df, "beer_servings"), 2) == 10
+    ), "Std deviation of beer_servings should be 10.00"
+    assert (
+        round(process_std(df, "spirit_servings"), 2) == 10
+    ), "Std deviation of spirit_servings should be 10.00"
+    assert (
+        round(process_std(df, "wine_servings"), 2) == 10
+    ), "Std deviation of wine_servings should be 10.00"
 
 
 if __name__ == "__main__":
