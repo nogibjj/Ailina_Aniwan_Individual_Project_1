@@ -25,9 +25,9 @@ deploy:
 all: install lint test format deploy
 
 generate_and_push:
-    python main.py; \
-    git config --local user.email "action@github.com"; \
-    git config --local user.name "GitHub Action"; \
-    git add .; \
-    git diff --staged --quiet || git commit -m "Add generated report"; \
-    git push
+	python main.py 
+	git config --local user.email "action@github.com"; \
+	git config --local user.name "GitHub Action"; \
+	git add . 
+	git diff --staged --quiet || git commit -m "Add generated report"
+	git push 
