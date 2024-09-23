@@ -1,9 +1,16 @@
 import pandas as pd
 from mylib.lib import (
+    load_dataset,
     process_mean,
     process_median,
     process_std,
 )
+
+
+def test_load_dataset():
+    df = load_dataset()
+    assert df is not None
+    assert df.shape == (193, 5)
 
 
 def test_statistics():
@@ -14,24 +21,22 @@ def test_statistics():
     }
     df = pd.DataFrame(data)
 
-    print("Testing 'beer_servings' statistics...")
-    expected_mean_beer = 60
-    expected_median_beer = 60
-    expected_std_beer = 10
-    print(
-        f"Expected mean: {expected_mean_beer:.2f}, "
-        f"Calculated mean: {process_mean(df, 'beer_servings'):.2f}"
-    )
-    print(
-        f"Expected median: {expected_median_beer:.2f}, "
-        f"Calculated median: {process_median(df, 'beer_servings'):.2f}"
-    )
-    print(
-        f"Expected standard deviation: {expected_std_beer:.2f}, "
-        f"Calculated standard deviation: {process_std(df, 'beer_servings'):.2f}"
-    )
-    print()
+    # Assert mean calculations
+    assert process_mean(df, "beer_servings") == 60
+    assert process_mean(df, "spirit_servings") == 90
+    assert process_mean(df, "wine_servings") == 30
+
+    # Assert median calculations
+    assert process_median(df, "beer_servings") == 60
+    assert process_median(df, "spirit_servings") == 90
+    assert process_median(df, "wine_servings") == 30
+
+    # Assert standard deviation calculations
+    assert round(process_std(df, "beer_servings"), 2) == 10
+    assert round(process_std(df, "spirit_servings"), 2) == 10
+    assert round(process_std(df, "wine_servings"), 2) == 10
 
 
 if __name__ == "__main__":
+    test_load_dataset()
     test_statistics()
