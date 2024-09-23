@@ -8,14 +8,43 @@ from mylib.lib import (
 
 
 def general_describe():
-    general = load_dataset()
-    return general.describe()
+    df = load_dataset()
+    return df.describe()
+
+
+def summary_statistics():
+    df = load_dataset()
+    columns = [
+        "beer_servings",
+        "spirit_servings",
+        "wine_servings",
+        "total_litres_of_pure_alcohol",
+    ]
+
+    for col in columns:
+        print(f"Column: {col}")
+        print(f"Mean: {process_mean(df, col):.2f}")
+        print(f"Median: {process_median(df, col):.2f}")
+        print(f"Standard Deviation: {process_std(df, col):.2f}")
+        print()
+
+    return {
+        "Mean": process_mean,
+        "Median": process_median,
+        "Standard Deviation": process_std,
+    }
+
+
+def plot_summary_statistics():
+    df = load_dataset()
+    plot_summary_statistics(df)
 
 
 def save_to_md():
-    with open("test.md", "a") as file:
+    with open("test.md", "w", encoding="utf-8") as file:
         file.write("test")
 
 
 if __name__ == "__main__":
-    save_to_md()
+    print(general_describe())
+    summary_statistics()
